@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- este  codigo es obra de Dios , me inspire en el ejemplo de SAN CARLO ACUTIS  -->
+<!-- este  codigo es obra de Dios , me inspire en el ejemplo de SAN CARLO ACUTIS  , y creado Por joiser jose brochero fonseca  -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,11 +36,21 @@
             padding: 30px;
         }
 
+        /* 
         .card img {
-            aspect-ratio: 3/4;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        } */
+        .card img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            /* 👈 controla que no se haga gigante */
+            object-fit: contain;
         }
 
+        /* 
         .card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
@@ -48,6 +59,18 @@
             backdrop-filter: blur(10px);
             transition: transform 0.4s, box-shadow 0.4s;
             animation: fadeUp 1s ease;
+        } */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: auto;
+            /* uyyyyyyy */
         }
 
         .card:hover {
@@ -59,12 +82,12 @@
         width: 100%;
         display: block;
           } */
-        img {
+        /* img {
             width: 100%;
             height: auto;
             aspect-ratio: 3/4;
             object-fit: cover;
-        }
+        } */
 
         .btn {
             margin: 30px;
@@ -150,6 +173,8 @@
             max-width: 90%;
             max-height: 85%;
             border-radius: 12px;
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
         }
 
         .nav {
@@ -213,7 +238,7 @@
 <body>
 
     <h1>✨ Semana Santa 2026 ✨</h1>
-    <p>Parroquia San Luis Beltrán y Santa Ana</p>
+    <h3>Parroquia San Luis Beltrán y Santa Ana</h3>
 
     <button class="btn" onclick="descargarTodo()">⬇️ Descargar cronograma</button>
 
@@ -251,18 +276,36 @@
             <strong>Padre Mario Arturo Monsalvo Bolaño</strong><br>
             y comunidades parroquiales
         </p>
-
+        <h4>creado por  , Joiser Jose Brochero Fonseca</h4>
         <a href="https://wa.me/573218189267" target="_blank" class="btn-wsp">
             📲 Contactar por WhatsApp
         </a>
     </footer>
 
     <script>
+
+        //ACA no e tenido roblemas gracias a Dios
+        let zoom = 1;
+
+        function aplicarZoom() {
+            const img = document.getElementById('imgActiva');
+
+            img.onclick = () => {
+                if (zoom === 1) {
+                    zoom = 2;
+                    img.style.transform = 'scale(2)';
+                    img.style.cursor = 'zoom-out';
+                } else {
+                    zoom = 1;
+                    img.style.transform = 'scale(1)';
+                    img.style.cursor = 'zoom-in';
+                }
+            };
+        }
+
         function descargarTodo() {
             const links = [
-                "https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg",
-                "https://i.postimg.cc/0N80rMHK/Whats-App-Image-2026-03-24-at-09-11-19-(1).jpg",
-                "https://i.postimg.cc/3xjZKC9p/Whats-App-Image-2026-03-24-at-09-11-20.jpg"
+                "https://postimg.cc/gallery/v5QFYYV"
             ];
 
             const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -284,11 +327,11 @@
                 });
             }
         }
-        const imagenes = [
-            "https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg",
-            "https://i.postimg.cc/0N80rMHK/Whats-App-Image-2026-03-24-at-09-11-19-(1).jpg",
-            "https://i.postimg.cc/3xjZKC9p/Whats-App-Image-2026-03-24-at-09-11-20.jpg"
-        ];
+        // const imagenes = [
+        //     "https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg",
+        //     "https://i.postimg.cc/0N80rMHK/Whats-App-Image-2026-03-24-at-09-11-19-(1).jpg",
+        //     "https://i.postimg.cc/3xjZKC9p/Whats-App-Image-2026-03-24-at-09-11-20.jpg"
+        // ];
 
         let indexActual = 0;
 
@@ -314,9 +357,16 @@
             mostrarImagen();
         }
 
-        // MOSTRAR
+        // MOSTRAR imagen 
         function mostrarImagen() {
-            document.getElementById('imgActiva').src = imagenes[indexActual];
+            const img = document.getElementById('imgActiva');
+            img.src = imagenes[indexActual];
+
+            zoom = 1;
+            img.style.transform = 'scale(1)';
+            img.style.cursor = 'zoom-in';
+
+            aplicarZoom();
         }
 
         //  (móvil)
