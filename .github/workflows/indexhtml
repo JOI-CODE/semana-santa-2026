@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- este  codigo es obra de Dios , me inspire en el ejemplo de SAN CARLO ACUTIS  , y creado Por joiser jose brochero fonseca  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana Santa 2026</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f3c4c, #1f5f73);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 3em;
+            animation: fadeDown 1s ease;
+        }
+
+        p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            animation: fadeDown 1.5s ease;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        /* 
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        } */
+        .card img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            /* 👈 controla que no se haga gigante */
+            object-fit: contain;
+        }
+
+        /* 
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s, box-shadow 0.4s;
+            animation: fadeUp 1s ease;
+        } */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: auto;
+            /* uyyyyyyy */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* img {
+        width: 100%;
+        display: block;
+          } */
+        /* img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        } */
+
+        .btn {
+            margin: 30px;
+            padding: 15px 25px;
+            font-size: 1em;
+            border: none;
+            border-radius: 30px;
+            background: #ffd166;
+            color: #333;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeUp 1.5s ease;
+        }
+
+        .btn:hover {
+            background: #ffb703;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .btn {
+                width: 90%;
+                font-size: 1em;
+            }
+
+            .galeria {
+                padding: 15px;
+                gap: 15px;
+            }
+
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .btn-wsp {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-wsp:hover {
+            background: #1ebe5d;
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>✨ Semana Santa 2026 ✨</h1>
+    <h3>Parroquia San Luis Beltrán y Santa Ana</h3>
+
+    <button class="btn" onclick="descargarTodo()">⬇️ Descargar cronograma</button>
+
+    <div class="galeria">
+        <div class="card">
+            <img src="https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg"
+                onclick="abrirGaleria(0)">
+        </div>
+
+        <div class="card">
+            <img src="https://i.postimg.cc/0N80rMHK/Whats-App-Image-2026-03-24-at-09-11-19-(1).jpg"
+                onclick="abrirGaleria(1)">
+        </div>
+
+        <div class="card">
+            <!-- imagen numero 3 esta un poco grande  -->
+            <img src="https://i.postimg.cc/3xjZKC9p/Whats-App-Image-2026-03-24-at-09-11-20.jpg"
+                onclick="abrirGaleria(2)">
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
+
+        <span class="nav prev" onclick="cambiarImagen(-1)">❮</span>
+
+        <img id="imgActiva">
+
+        <span class="nav next" onclick="cambiarImagen(1)">❯</span>
+    </div>
+
+    <footer class="footer">
+        <p>
+            ✨ Felices Pascuas les desea ✨<br><br>
+            <strong>Padre Mario Arturo Monsalvo Bolaño</strong><br>
+            y comunidades parroquiales
+        </p>
+        <h4>creado por  , Joiser Jose Brochero Fonseca</h4>
+        <a href="https://wa.me/573218189267" target="_blank" class="btn-wsp">
+            📲 Contactar por WhatsApp
+        </a>
+    </footer>
+
+    <script>
+
+        //ACA no e tenido roblemas gracias a Dios
+        let zoom = 1;
+
+        function aplicarZoom() {
+            const img = document.getElementById('imgActiva');
+
+            img.onclick = () => {
+                if (zoom === 1) {
+                    zoom = 2;
+                    img.style.transform = 'scale(2)';
+                    img.style.cursor = 'zoom-out';
+                } else {
+                    zoom = 1;
+                    img.style.transform = 'scale(1)';
+                    img.style.cursor = 'zoom-in';
+                }
+            };
+        }
+
+        function descargarTodo() {
+            const links = [
+                "https://postimg.cc/gallery/v5QFYYV"
+            ];
+
+            const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            if (esMovil) {
+                alert("Mantén presionada cada imagen para guardarla 📲");
+
+                links.forEach(url => {
+                    window.open(url, '_blank');
+                });
+            } else {
+                links.forEach((url, index) => {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'cronograma_' + (index + 1);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                });
+            }
+        }
+        // const imagenes = [
+        //     "https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg",
+        //     "https://i.postimg.cc/0N80rMHK/Whats-App-Image-2026-03-24-at-09-11-19-(1).jpg",
+        //     "https://i.postimg.cc/3xjZKC9p/Whats-App-Image-2026-03-24-at-09-11-20.jpg"
+        // ];
+
+        let indexActual = 0;
+
+        // accedo a galeri
+        function abrirGaleria(index) {
+            indexActual = index;
+            document.getElementById('lightbox').style.display = 'flex';
+            mostrarImagen();
+        }
+
+        // close
+        function cerrarGaleria() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // pasar imagen
+        function cambiarImagen(direccion) {
+            indexActual += direccion;
+
+            if (indexActual < 0) indexActual = imagenes.length - 1;
+            if (indexActual >= imagenes.length) indexActual = 0;
+
+            mostrarImagen();
+        }
+
+        // MOSTRAR imagen 
+        function mostrarImagen() {
+            const img = document.getElementById('imgActiva');
+            img.src = imagenes[indexActual];
+
+            zoom = 1;
+            img.style.transform = 'scale(1)';
+            img.style.cursor = 'zoom-in';
+
+            aplicarZoom();
+        }
+
+        //  (móvil)
+        let startX = 0;
+
+        document.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', e => {
+            let endX = e.changedTouches[0].clientX;
+
+            if (startX - endX > 50) cambiarImagen(1);
+            if (endX - startX > 50) cambiarImagen(-1);
+        });
+    </script>
+
+</body>
+
+</html>
