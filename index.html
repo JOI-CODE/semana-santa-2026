@@ -313,19 +313,8 @@
             if (esMovil) {
                 alert("Mantén presionada cada imagen para guardarla 📲");
 
-                links.forEach(url => {
-                    window.open(url, '_blank');
-                });
-            } else {
-                links.forEach((url, index) => {
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'cronograma_' + (index + 1);
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                });
-            }
+                
+            } 
         }
          const imagenes = [
              "https://i.postimg.cc/qvHLVZs8/Whats-App-Image-2026-03-24-at-09-11-19.jpg",
